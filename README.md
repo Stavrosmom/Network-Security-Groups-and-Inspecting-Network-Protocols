@@ -50,10 +50,9 @@ After, use remote desktop to connect to your Windows 10 VM. Once connected, ente
 <img src="https://i.imgur.com/bmDmMa2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-After, 
 </p>
 <br />
- After installed, open the program. 
+ Once installed, open the program. 
 </p>
 <br />
 <p>
@@ -99,5 +98,53 @@ Observe the perpetual ping we sent out is now requesting time out. Allow the pin
 <p>
 Return to Azure and delete the security rule we just created. Next, Open back up the Windows VM and observe the ping is now succesfull. Stop the ping with ctrl + c.
 </p>
+<br />
+<p>
+ <img src="https://i.imgur.com/cYbyvEb.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+ </p>
+<br />
+<p>
+ <img src="https://i.imgur.com/LAUMTRz.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+  </p>
+<br />
+<p>
+ Next we will observe SSH traffic. in the filter bar, type in "ssh" and open a Command Prompt. In the Command Prompt connect to the Linux VM using SSH. To do this type in: ssh username@PrivateIP. For reference, mine was "ssh VM2@10.0.0.5". Next input your password and hit enter. Type a few Linux commands and oberve the traffic. (one commmand you can use is dig) To exit SSH, simply type "exit".
+ </p>
+<br />
+<p>
+ <img src="https://i.imgur.com/Pg5uNPk.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+ </p>
+<br />
+<p>
+ Next, we will observe DHCP traffic. In the filter bar type "dhcp" and open Command Prompt.
+ </p>
+<br />
+<p>
+ <img src="https://i.imgur.com/PGrE6a0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+ </p>
+<br />
+<p>
+ In Command Prompt type "ipconfig /renew". This will send DHCP traffic by renewing your IP address.
+ </p>
+<br />
+<p>
+ 
+ </p>
+<br />
+<p>
+ 
+ </p>
+<br />
+<p>
+ 
+ </p>
+<br />
+<p>
+ 
+ </p>
+<br />
+<p>
+ 
+ </p>
 <br />
 <p>
