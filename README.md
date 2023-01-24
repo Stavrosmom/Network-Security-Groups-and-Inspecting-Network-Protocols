@@ -2,7 +2,7 @@
 <img src="https://i.imgur.com/Ua7udoS.png" alt="Traffic Examination"/>
 </p>
 
-<h1>Network Security Groups (NSGs) and Inspecting Traffic Between Azure Virtual Machines</h1>
+<h1>Network Security Groups and Inspecting Traffic Between Azure Virtual Machines</h1>
 In this tutorial, we observe various network traffic to and from Azure Virtual Machines with Wireshark as well as experiment with Network Security Groups. <br />
 
 
@@ -11,7 +11,7 @@ In this tutorial, we observe various network traffic to and from Azure Virtual M
 - Microsoft Azure (Virtual Machines/Compute)
 - Remote Desktop
 - Various Command-Line Tools
-- Various Network Protocols (SSH, RDH, DNS, HTTP/S, ICMP)
+- Various Network Protocols (SSH, RDP, DNS, ICMP)
 - Wireshark (Protocol Analyzer)
 
 <h2>Operating Systems Used </h2>
@@ -80,7 +80,7 @@ Then, ping google.com. Observe the traffic.
 </p>
 <br />
 <p>
-Next, run a perpetual ping on the linux VM using "ping -t". While the VM is pinging the other, minimize the windows VM and enter the NetworkTraffic resource group. Then select your linux VM -> Networking -> Add inbound port rule. Select the ICMP protocol. Then select Deny and set the priority to 200. Name the port rule "DenyInboundICMP". Allow the security rule to be created and return to the windows VM. What this security rule will do is prevent any inbound ICMP to reach the Linux VM. 
+Next, run a perpetual ping on the linux VM using "ping -t". While the VM is pinging the other, minimize the windows VM and enter the NetworkTraffic resource group. Then select your linux VM -> Networking -> Add inbound port rule. Select the ICMP protocol. Then select Deny and set the priority to 200. Name the port rule "DenyInboundICMP". Allow the security rule to be created and return to the windows VM. This security rule will prevent any inbound ICMP from reaching the Linux VM. 
 </p>
 <br />
 <p>
@@ -88,7 +88,7 @@ Next, run a perpetual ping on the linux VM using "ping -t". While the VM is ping
 </p>
 <br />
 <p>
-Observe the perpetual ping we sent out is now requesting time out. Allow the ping to continue. 
+Observe that the perpetual ping we sent out is now requesting time out. Allow the ping to continue. 
 </p>
 <br />
 <p>
@@ -128,23 +128,35 @@ Return to Azure and delete the security rule we just created. Next, Open back up
  </p>
 <br />
 <p>
- 
+ <img src="https://i.imgur.com/cZt89kn.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
  </p>
 <br />
 <p>
- 
+ Next we will observe DNS traffic. In the filter bar type in "dns" and open Command Prompt.
  </p>
 <br />
 <p>
- 
+ <img src="https://i.imgur.com/qk2NQHm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
  </p>
 <br />
 <p>
- 
+ In Command Prompt, type in "nslookup google.com". This will send DNS traffic by converting google.com to an IP address.
  </p>
 <br />
 <p>
- 
+ <img src="https://i.imgur.com/pvvhsTp.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+ </p>
+<br />
+<p>
+ Lastly, we will observe RDP traffic. In the filter bar, type "tcp.port == 3389". Notice traffic appears instantly. Since we are logged into the VM using Remote Desktop, RDP traffic is continuosly being sent.
+ </p>
+<br />
+<p>
+ <img src="https://i.imgur.com/n6RJGKh.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+ </p>
+<br />
+<p>
+ Congrats! You've made it to the end of the lab. You now know how to install and observe different protocols using Wireshark!
  </p>
 <br />
 <p>
